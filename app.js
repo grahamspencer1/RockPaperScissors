@@ -14,11 +14,17 @@ function getCompChoice() {
   return choices[randomNumber];
 }
 
+function convertToWord(letter) {
+  if (letter === "r") return "Rock";
+  if (letter === "p") return "Paper";
+  return "Scissors";
+}
+
 function win(user, comp) {
   userScore ++;
   userScore_span.innerHTML = userScore;
   compScore_span.innerHTML = compScore;
-  result_p.innerHTML = user + " beats " + comp + ". You win!!!";
+  result_p.innerHTML = convertToWord(user) + " beats " + convertToWord(comp) + ". You win!!!";
 }
 
 function lose() {
