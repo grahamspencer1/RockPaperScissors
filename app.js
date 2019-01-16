@@ -13,11 +13,29 @@ function getComputerChoice() {
   const randomNumber = Math.floor(Math.random() * 3);
   return choices[randomNumber];
 }
-console.log(getComputerChoice());
 
 function game(userChoice) {
-
+  const computerChoice = getComputerChoice();
+  switch (userChoice + computerChoice) {
+    case "rs":
+    case "pr":
+    case "sp":
+      console.log("USER WINS!");
+      break;
+    case "rp":
+    case "ps":
+    case "sr":
+      console.log("COMP WINS!");
+      break;
+    case "rr":
+    case "pp":
+    case "ss":
+      console.log("IT'S A TIE!");
+      break;
+  }
 }
+
+game("c");
 
 function main () {
   rock_div.addEventListener("click", function() {
