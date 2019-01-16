@@ -1,36 +1,51 @@
-const userScore = 0;
-const compScore = 0;
+let userScore = 0;
+let compScore = 0;
 const userScore_span = document.getElementById("user-score");
 const compScore_span = document.getElementById("comp-score");
 const scoreBoard_div = document.querySelector(".scoreboard");
-const result_div = document.querySelector(".result");
+const result_p = document.querySelector(".result > p");
 const rock_div = document.getElementById("r");
 const paper_div = document.getElementById("p");
 const scissors_div = document.getElementById("s");
 
-function getComputerChoice() {
+function getCompChoice() {
   const choices = ["r", "p", "s"];
   const randomNumber = Math.floor(Math.random() * 3);
   return choices[randomNumber];
 }
 
+function win(user, comp) {
+  userScore ++;
+  userScore_span.innerHTML = userScore;
+  compScore_span.innerHTML = compScore;
+  result_p.innerHTML = user + " beats " + comp + ". You win!!!";
+}
+
+function lose() {
+
+}
+
+function draw() {
+
+}
+
 function game(userChoice) {
-  const computerChoice = getComputerChoice();
-  switch (userChoice + computerChoice) {
+  const compChoice = getCompChoice();
+  switch (userChoice + compChoice) {
     case "rs":
     case "pr":
     case "sp":
-      console.log("USER WINS!");
+      win(userChoice, compChoice);
       break;
     case "rp":
     case "ps":
     case "sr":
-      console.log("COMP WINS!");
+      lose(userChoice, compChoice);
       break;
     case "rr":
     case "pp":
     case "ss":
-      console.log("IT'S A TIE!");
+      draw(userChoice, compChoice);
       break;
   }
 }
