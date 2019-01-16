@@ -24,15 +24,26 @@ function win(user, comp) {
   userScore ++;
   userScore_span.innerHTML = userScore;
   compScore_span.innerHTML = compScore;
-  result_p.innerHTML = convertToWord(user) + " beats " + convertToWord(comp) + ". You win!!!";
+  const smallUserWord = "user".fontsize(3).sup();
+  const smallCompWord = "comp".fontsize(3).sup();
+  result_p.innerHTML = `${convertToWord(user)}${smallUserWord} beats ${convertToWord(comp)}${smallCompWord}. You win! 💪`;
 }
 
-function lose() {
-
+function lose(user, comp) {
+  compScore ++;
+  userScore_span.innerHTML = userScore;
+  compScore_span.innerHTML = compScore;
+  const smallUserWord = "user".fontsize(3).sup();
+  const smallCompWord = "comp".fontsize(3).sup();
+  result_p.innerHTML = `${convertToWord(user)}${smallUserWord} loses to ${convertToWord(comp)}${smallCompWord}. You lost. 💩`;
 }
 
-function draw() {
-
+function draw(user, comp) {
+  userScore_span.innerHTML = userScore;
+  compScore_span.innerHTML = compScore;
+  const smallUserWord = "user".fontsize(3).sup();
+  const smallCompWord = "comp".fontsize(3).sup();
+  result_p.innerHTML = `${convertToWord(user)}${smallUserWord} ties ${convertToWord(comp)}${smallCompWord}. It's a tie. 🎀`;
 }
 
 function game(userChoice) {
