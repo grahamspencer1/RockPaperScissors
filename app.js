@@ -21,29 +21,38 @@ function convertToWord(letter) {
 }
 
 function win(user, comp) {
+  const smallUserWord = "user".fontsize(3).sup();
+  const smallCompWord = "comp".fontsize(3).sup();
+  const userChoice_div = document.getElementById(user);
   userScore ++;
   userScore_span.innerHTML = userScore;
   compScore_span.innerHTML = compScore;
-  const smallUserWord = "user".fontsize(3).sup();
-  const smallCompWord = "comp".fontsize(3).sup();
   result_p.innerHTML = `${convertToWord(user)}${smallUserWord} beats ${convertToWord(comp)}${smallCompWord}. You win! 💪`;
+  userChoice_div.classList.add("green-glow");
+  setTimeout(function() {userChoice_div.classList.remove("green-glow") }, 300);
 }
 
 function lose(user, comp) {
+  const smallUserWord = "user".fontsize(3).sup();
+  const smallCompWord = "comp".fontsize(3).sup();
+  const userChoice_div = document.getElementById(user);
   compScore ++;
   userScore_span.innerHTML = userScore;
   compScore_span.innerHTML = compScore;
-  const smallUserWord = "user".fontsize(3).sup();
-  const smallCompWord = "comp".fontsize(3).sup();
   result_p.innerHTML = `${convertToWord(user)}${smallUserWord} loses to ${convertToWord(comp)}${smallCompWord}. You lost. 💩`;
+  userChoice_div.classList.add("red-glow");
+  setTimeout(function() {userChoice_div.classList.remove("red-glow") }, 300);
 }
 
 function draw(user, comp) {
-  userScore_span.innerHTML = userScore;
-  compScore_span.innerHTML = compScore;
   const smallUserWord = "user".fontsize(3).sup();
   const smallCompWord = "comp".fontsize(3).sup();
+  const userChoice_div = document.getElementById(user);
+  userScore_span.innerHTML = userScore;
+  compScore_span.innerHTML = compScore;
   result_p.innerHTML = `${convertToWord(user)}${smallUserWord} ties ${convertToWord(comp)}${smallCompWord}. It's a tie. 🎀`;
+  userChoice_div.classList.add("grey-glow");
+  setTimeout(function() {userChoice_div.classList.remove("grey-glow") }, 300);
 }
 
 function game(userChoice) {
