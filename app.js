@@ -29,7 +29,7 @@ function win(user, comp) {
   compScore_span.innerHTML = compScore;
   result_p.innerHTML = `${convertToWord(user)}${smallUserWord} beats ${convertToWord(comp)}${smallCompWord}. You win! 💪`;
   userChoice_div.classList.add("green-glow");
-  setTimeout(function() {userChoice_div.classList.remove("green-glow") }, 300);
+  setTimeout(() => userChoice_div.classList.remove("green-glow"), 300);
 }
 
 function lose(user, comp) {
@@ -41,7 +41,7 @@ function lose(user, comp) {
   compScore_span.innerHTML = compScore;
   result_p.innerHTML = `${convertToWord(user)}${smallUserWord} loses to ${convertToWord(comp)}${smallCompWord}. You lost. 💩`;
   userChoice_div.classList.add("red-glow");
-  setTimeout(function() {userChoice_div.classList.remove("red-glow") }, 300);
+  setTimeout(() => userChoice_div.classList.remove("red-glow"), 300);
 }
 
 function draw(user, comp) {
@@ -52,7 +52,7 @@ function draw(user, comp) {
   compScore_span.innerHTML = compScore;
   result_p.innerHTML = `${convertToWord(user)}${smallUserWord} ties ${convertToWord(comp)}${smallCompWord}. It's a tie. 🎀`;
   userChoice_div.classList.add("grey-glow");
-  setTimeout(function() {userChoice_div.classList.remove("grey-glow") }, 300);
+  setTimeout(() => userChoice_div.classList.remove("grey-glow"), 300);
 }
 
 function game(userChoice) {
@@ -79,17 +79,11 @@ function game(userChoice) {
 game("c");
 
 function main () {
-  rock_div.addEventListener("click", function() {
-    game("r");
-  });
+  rock_div.addEventListener("click", () => game("r"));
 
-  paper_div.addEventListener("click", function() {
-    game("p");
-  });
+  paper_div.addEventListener("click", () => game("p"));
 
-  scissors_div.addEventListener("click", function() {
-    game("s");
-  });
+  scissors_div.addEventListener("click", () => game("s"));
 }
 
 main();
